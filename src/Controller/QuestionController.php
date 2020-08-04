@@ -7,6 +7,7 @@ use App\Service\MarkdownHelper;
 use Knp\Bundle\MarkdownBundle\MarkdownParserInterface;
 
 use Psr\Log\LoggerInterface;
+use Sentry\State\HubInterface;
 use Symfony\Contracts\Cache\CacheInterface;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -42,7 +43,7 @@ class QuestionController extends AbstractController
      */
     public function show($slug, MarkdownParserInterface $markdownParser, CacheInterface $cache, MarkdownHelper $markdownHelper, bool $isDebug)
     {
-        dump($isDebug);
+
         if($this->isDebug){
             $this->logger->info('We are in debug mode!');
         }
